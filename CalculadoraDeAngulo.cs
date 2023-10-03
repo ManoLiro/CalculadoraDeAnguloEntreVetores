@@ -1,8 +1,11 @@
+using System.Globalization;
+using System.Numerics;
+
 namespace CalculadoraDeAnguloEntreVetores
 {
-    public partial class Form1 : Form
+    public partial class CalculadoraDeAngulo : Form
     {
-        public Form1()
+        public CalculadoraDeAngulo()
         {
             InitializeComponent();
         }
@@ -44,12 +47,39 @@ namespace CalculadoraDeAnguloEntreVetores
             double[] vectorB = { vetorB1, vetorB2, vetorB3 };
 
             double angle = Calculos.AngleBetweenVectors(vectorA, vectorB);
-            TextAngulo.Text = $"O ângulo entre os vetores A e B é de {angle} graus.";
+            PrimeiroCalculo.Text = Calculos.DotProductString(vectorA, vectorB);
+            SegundoCalculoVetorA.Text = "Vetor U = " + Calculos.VectorMagnitude5tring(vectorA);
+            SegundoCalculoVetorB.Text = "Vetor V = " + Calculos.VectorMagnitude5tring(vectorB);
+            CosTheta.Text = "Cos Theta = " + Calculos.cosThetaString(vectorA, vectorB);
+            ConvertendoGraus.Text = Calculos.AngleBetweenVectorsString(vectorA, vectorB);
+            TextAngulo.Text = $"O ângulo entre os vetores U e V é de {angle.ToString("N2", new CultureInfo("pt-BR"))} graus.";
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PrimeiroCalculo.Text = ".";
+            SegundoCalculoVetorA.Text = ".";
+            SegundoCalculoVetorB.Text = ".";
+            CosTheta.Text = ".";
+            ConvertendoGraus.Text = ".";
+            TextAngulo.Text = ".";
+            VetorU.Text = "";
+            VetorV.Text = "";
         }
     }
 }
